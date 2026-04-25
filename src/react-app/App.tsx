@@ -275,6 +275,15 @@ function App() {
 									<p>+598 091 883 633</p>
 								</div>
 								<div className="contact-item">
+									<a href="https://www.instagram.com/shaolinchuan_reducto/" target="_blank" rel="noopener noreferrer">
+										<div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+											<img src="/LogoIg.png" alt="Instagram Logo" style={{ width: "30px", height: "30px" }} />
+											<h3>Instagram</h3>
+										</div>
+										<p>¡Siguenos! Para enterarte de todo</p>
+									</a>
+								</div>
+								<div className="contact-item">
 									<h3>🕐 Atención</h3>
 									<p>Lunes a Viernes: 9:00 - 21:30</p>
 									<p>Sábado y Domingo: -</p>
