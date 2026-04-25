@@ -5,6 +5,19 @@ import "./App.css";
 
 function App() {
 	const [activeSection, setActiveSection] = useState("inicio");
+	const [nombre, setNombre] = useState("");
+	const [mensaje, setMensaje] = useState("");
+
+	const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const numero = "091883633"; 
+		const mensajeCompleto = `Hola, mi nombre es ${nombre}. ${mensaje}`;
+		const urlWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensajeCompleto)}`;
+		window.open(urlWhatsApp, "_blank");
+		// Limpiar el formulario
+		setNombre("");
+		setMensaje("");
+	};
 
 	return (
 		<div className="app">
@@ -58,7 +71,7 @@ function App() {
 				{activeSection === "inicio" && (
 					<section className="hero">
 						<div className="hero-content">
-							<h2>Kung Fu de Shaolin</h2>
+							<h2>Shaolin Kung Fu</h2>
 							<img src="/LogoEscuela.png" alt="Logo Shaolin Chuan" style={{ width: "150px", height: "auto" }} />
 							<img src="/LogoChina.png" alt="Logo Shaolin Chuan" style={{ width: "150px", height: "auto" }} />
 							<p className="hero-subtitle">
@@ -113,28 +126,32 @@ function App() {
 						<h2>Sobre Nosotros</h2>
 						<div className="content-grid">
 							<div className="content-card">
-								<h3>Nuestra Misión</h3>
+								<h3>Nuestro Objetivo</h3>
 								<p>
-									Formar practicantes íntegros, desarrollando tanto habilidades
-									marciales como valores humanos: respeto, disciplina, perseverancia
-									y humildad.
+									Formar practicantes íntegros, desarrollando tanto habilidades marciales como valores humanos: 
+									respeto, disciplina, perseverancia y humildad.
+									</p>
+								<p>	
+									Buscamos también fomentar hábitos que trasciendan el arte marcial y acompañen a cada persona en su vida diaria.
 								</p>
+								<img src="/FotoTipo2.jpg"  style={{ width: "100%", height: "auto", marginTop: "10px" }} />
 							</div>
 							<div className="content-card">
 								<h3>Tradición Auténtica</h3>
 								<p>
-									Preservamos y enseñamos el Kung Fu de Shaolin en su forma
-									tradicional, respetando los principios ancestrales del arte
-									marcial chino.
+									Preservamos y enseñamos Shaolin Kung fu en su forma tradicional, respetando los principios ancestrales del arte marcial chino.
+									Nuestro linaje proviene directamente de China, de la escuela del Dashi Shi Yong Kan, ubicada en Henan, y continúa a través del 
+									Shifu Shi Yan Yuan (Daniel Bogado).
 								</p>
+								<img src="/FotoTipo1.jpg" alt="Kung Fu Tradicional" style={{ width: "100%", height: "auto", marginTop: "10px" }} />
 							</div>
 							<div className="content-card">
 								<h3>Comunidad Marcial</h3>
 								<p>
-									Somos una familia de practicantes unidos por la pasión por las
-									artes marciales, buscando el crecimiento mutuo y el desarrollo
-									personal.
+									Somos una escuela de Kung Fu con presencia en distintas partes de Uruguay, dedicada a la enseñanza y difusión de la tradición Shaolin.
+									Compartimos y celebramos nuestra cultura a través de eventos como el Año Nuevo Chino y otras actividades que fortalecen la comunidad marcial.
 								</p>
+								<img src="/FotoAñoNuevoChino.jpg" alt="Kung Fu Tradicional" style={{ width: "100%", height: "auto", marginTop: "10px" }} />
 							</div>
 						</div>
 					</section>
@@ -146,35 +163,42 @@ function App() {
 						<h2>Nuestras Clases</h2>
 						<div className="classes-grid">
 							<div className="class-card">
-								<h3>Iniciante</h3>
-								<p className="level">Para principiantes</p>
+								<h3>Niños</h3>
+								<p className="level">Desde 5 años a 15</p>
 								<ul>
-									<li>Técnicas básicas de Kung Fu</li>
-									<li>Fortalecimiento físico</li>
-									<li>Introducción a la filosofía marcial</li>
-									<li>Duración: 60 minutos</li>
+									<li>Técnicas de Kung Fu</li>
+									<li>Motricidad y movilidad</li>
+									<li>Acrobacias</li>
+									<li>Defensa personal</li>
+									<li>Aprende jugando, Crece entrenando</li>
 								</ul>
 							</div>
 							<div className="class-card">
-								<h3>Intermedio</h3>
-								<p className="level">Practicantes con experiencia</p>
+								<h3>Adultos y adolescentes</h3>
+								<p className="level">Desde 15 años en mas</p>
 								<ul>
-									<li>Formas tradicionales</li>
-									<li>Técnicas avanzadas</li>
-									<li>Defensa personal práctica</li>
-									<li>Duración: 75 minutos</li>
+									<li>Técnicas de Kung Fu</li>
+									<li>Motricidad y movilidad</li>
+									<li>Defensa personal</li>
+									<li>Acrobacias</li>
+									<li>Nunca es tarde para empezar</li>
 								</ul>
 							</div>
-							<div className="class-card">
-								<h3>Avanzado</h3>
-								<p className="level">Practicantes experimentados</p>
-								<ul>
-									<li>Sistemas completos de Shaolin</li>
-									<li>Entrenamiento profundo</li>
-									<li>Aplicaciones marciales</li>
-									<li>Duración: 90 minutos</li>
-								</ul>
-							</div>
+							
+						</div>
+
+						<div className="video-container">
+							<video 
+								width="100%" 
+								controls 
+								loop 
+								autoPlay 
+								muted
+								className="classes-video"
+							>
+								<source src="/VideoDelasClases.mp4" type="video/mp4" />
+								Tu navegador no soporta el elemento de video.
+							</video>
 						</div>
 					</section>
 				)}
@@ -256,14 +280,23 @@ function App() {
 									<p>Sábado y Domingo: -</p>
 								</div>
 							</div>
-							<div className="contact-form"> // hay que agregar que mande a whatsapp o algo asi
+							<div className="contact-form"> 
 								<p>¿Interesado en unirte a nuestra escuela?</p>
 								<p>Completa el siguiente formulario y nos pondremos en contacto:</p>
-								<form>
-									<input type="text" placeholder="Tu nombre" />
-									<textarea
-										placeholder="Cuéntanos sobre ti y tu interés en el Kung Fu"
-										rows={4}
+							<form onSubmit={handleWhatsAppSubmit}>
+								<input 
+									type="text" 
+									placeholder="Tu nombre" 
+									value={nombre}
+									onChange={(e) => setNombre(e.target.value)}
+									required
+								/>
+								<textarea
+									placeholder="Cuéntanos sobre ti y tu interés en el Kung Fu"
+									rows={4}
+									value={mensaje}
+									onChange={(e) => setMensaje(e.target.value)}
+									required
 									></textarea>
 									<button type="submit" className="submit-btn">
 										Enviar
