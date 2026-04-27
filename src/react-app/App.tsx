@@ -1,5 +1,3 @@
-// src/App.tsx
-
 import { useState } from "react";
 import "./App.css";
 
@@ -10,7 +8,7 @@ function App() {
 
 	const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const numero = "091883633"; 
+		const numero = "598091883633"; 
 		const mensajeCompleto = `Hola, mi nombre es ${nombre}. ${mensaje}`;
 		const urlWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensajeCompleto)}`;
 		window.open(urlWhatsApp, "_blank");
@@ -75,7 +73,7 @@ function App() {
 							<img src="/LogoEscuela.png" alt="Logo Shaolin Chuan" style={{ width: "150px", height: "auto" }} />
 							<img src="/LogoChina.png" alt="Logo Shaolin Chuan" style={{ width: "150px", height: "auto" }} />
 							<p className="hero-subtitle">
-								No solo un deporte, Un estilo de vida
+								No solo un deporte, un estilo de vida
 							</p>
 							<p className="hero-description">
 								Shaolin Chuan Reducto, donde la tradición del Kung Fu forja disciplina, impulsa la superación y construye equilibrio
@@ -164,23 +162,23 @@ function App() {
 						<div className="classes-grid">
 							<div className="class-card">
 								<h3>Niños</h3>
-								<p className="level">Desde 5 años a 15</p>
+								<p className="level">Entre 5 años a 15</p>
 								<ul>
 									<li>Técnicas de Kung Fu</li>
 									<li>Motricidad y movilidad</li>
 									<li>Acrobacias</li>
 									<li>Defensa personal</li>
-									<li>Aprende jugando, Crece entrenando</li>
+									<li>Aprendé jugando, crecé entrenando</li>
 								</ul>
 							</div>
 							<div className="class-card">
-								<h3>Adultos y adolescentes</h3>
-								<p className="level">Desde 15 años en mas</p>
+								<h3>Adolescentes / Adultos</h3>
+								<p className="level">Desde 15 años en adelante</p>
 								<ul>
 									<li>Técnicas de Kung Fu</li>
 									<li>Motricidad y movilidad</li>
-									<li>Defensa personal</li>
 									<li>Acrobacias</li>
+									<li>Defensa personal</li>
 									<li>Nunca es tarde para empezar</li>
 								</ul>
 							</div>
@@ -216,21 +214,21 @@ function App() {
 
 								</div>
 								<div className="schedule-row">
-									<div className="schedule-cell">Martes</div>
-									<div className="schedule-cell">18:30 - 20:00</div>
-									<div className="schedule-cell">20:00 - 21:30</div>
+								<div className="schedule-cell">Martes</div>
+								<div className="schedule-cell" data-label="Niños">18:30 - 20:00</div>
+								<div className="schedule-cell" data-label="Adultos">20:00 - 21:30</div>
 
 								</div>
 								<div className="schedule-row">
-									<div className="schedule-cell">Jueves</div>
-									<div className="schedule-cell">18:30 - 20:00</div>
-									<div className="schedule-cell">20:00 - 21:30</div>
+								<div className="schedule-cell">Jueves</div>
+								<div className="schedule-cell" data-label="Niños">18:30 - 20:00</div>
+								<div className="schedule-cell" data-label="Adultos">20:00 - 21:30</div>
 
 								</div>
 								<div className="schedule-row">
-									<div className="schedule-cell">Viernes</div>
-									<div className="schedule-cell">19:00 - 20:00</div>
-									<div className="schedule-cell">20:00 - 21:00</div>
+								<div className="schedule-cell">Viernes</div>
+								<div className="schedule-cell" data-label="Niños">19:00 - 20:00</div>
+								<div className="schedule-cell" data-label="Adultos">20:00 - 21:00</div>
 
 								</div>
 								{/* Lo dejamos por las dudas si se suman 
@@ -266,13 +264,15 @@ function App() {
 								<div className="contact-item">
 									<h3>📍 Ubicación</h3>
 									<a href="https://maps.app.goo.gl/5cysbnGRNDgZ7c38A" target="_blank" rel="noopener noreferrer">
-										<p>Barrio Reducto, Montevideo</p>
+										Barrio Reducto, Montevideo
 									</a>
 									<p>Uruguay</p>
 								</div>
 								<div className="contact-item">
 									<h3>📞 Teléfono</h3>
-									<p>+598 091 883 633</p>
+									<a href="https://wa.me/598091883633" target="_blank" rel="noopener noreferrer">
+										+598 091 883 633
+									</a>
 								</div>
 								<div className="contact-item">
 									<a href="https://www.instagram.com/shaolinchuan_reducto/" target="_blank" rel="noopener noreferrer">
@@ -280,7 +280,7 @@ function App() {
 											<img src="/LogoIg.png" alt="Instagram Logo" style={{ width: "30px", height: "30px" }} />
 											<h3>Instagram</h3>
 										</div>
-										<p>¡Siguenos! Para enterarte de todo</p>
+										¡Siguenos! Para enterarte de todo
 									</a>
 								</div>
 								<div className="contact-item">
@@ -319,6 +319,10 @@ function App() {
 
 			{/* Footer */}
 			<footer className="footer">
+				<div className="socialmidia">
+					<a href="https://www.instagram.com/shaolinchuan_reducto/?hl=es" className="fa-brands fa-instagram" id="socialbordIG" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
+					<a href="https://www.facebook.com/people/Shaolin-Chuan-Reducto/pfbid0sAnee2SmRsCjqf3T2rSbmJmGssDNcPAG1XkTxBGRhwKKxq8qth1rMWDw1bZkHN1Nl/" className="fa-brands fa-facebook" id="socialbordIG" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
+				</div>
 				<p>&copy; 2026 Shaolin Chuan Sede Reducto. Todos los derechos reservados.</p>
 			</footer>
 		</div>
